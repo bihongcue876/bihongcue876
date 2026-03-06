@@ -1,13 +1,10 @@
-<!-- ## Hi there 👋
-
-**bihongcue876/bihongcue876** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+<!-- Personal file 个人文档
 -->
 <p align="center">
   <img src="./title.jpg" width="100%" />
 </p>
 
-<h1 align="left">- B . H . C -</h1>
-
+<h2 align="left">- B . H . C -</h2>
 
 
 尝试开发，目前学习，偶尔郁结，时常游戏。
@@ -24,8 +21,12 @@
 
 ### - 画簿 -
 <p align="center">
-  <img src="./draw4.jpg" width="18.5%" />
-  <img src="./draw3.jpg" width="25%" />
-  <img src="./draw2.jpg" width="25%" />
-  <img src="./draw1-2.jpg" width="25%" />
+  <img src="./draw4.jpg" width="14.79%" />
+  <img src="./draw3.jpg" width="20%" />
+  <img src="./draw2.jpg" width="20%" />
+  <img src="./draw1-2.jpg" width="20%" />
 </p>
+
+### - 其他 -
+
+- AI, Python, Agent.
