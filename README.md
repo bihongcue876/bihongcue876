@@ -1,19 +1,19 @@
 <!-- Personal file 个人文档
 -->
 <p align="center">
-  <img src="./title.jpg" width="100%" />
+  <img src="./title.jpg" width="90%" />
 </p>
 
 <h2 align="center">- B . H . C -</h2>
 
 
-尝试开发，目前学习，偶尔郁结，时常游戏。
+*尝试开发，目前学习，偶尔郁结，时常游戏。*
 
-不善文辞，探求玄秘，睡眠日劣，何时返归。
+*不善文辞，探求玄秘，睡眠日劣，何时返原。*
 
 ### - 标记 -
 
-- AI, Python, Agent.
+- `AI`, `Python`, `Agent`.
 
 ### - 画 -
 <p align="center">
