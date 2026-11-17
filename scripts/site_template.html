@@ -268,7 +268,7 @@ function viewTo(v) {
   [...$('#views').children].forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === v)));
   $('#hint').textContent = v === 'flat'
     ? '悬停格子看当天次数 · 切到「立体」看柱高'
-    : '柱高 = log(提交数) · 悬停柱子看详情';
+    : '柱高按提交数开方缩放 · 悬停柱子看详情';
   if (v === 'iso') startIso(); else stopIso();
 }
 
@@ -300,7 +300,7 @@ function renderMonths(days, year) {
   vals.forEach((v, i) => {
     const x0 = 8 + i * slot;
     const cx = x0 + slot / 2;
-    const h = v ? Math.max(0.12, v / max) : 0.02;
+    const h = v ? Math.max(0.12, Math.sqrt(v / max)) : 0.02;  // 开方缩放，月份之间更容易比较
     const lv = v ? levelOf(v, [0, max * .22, max * .5, max * .78]) : 0;
     const fill = v ? 'url(#' + gid + '-' + lv + ')' : p.c0;
     out.push('<g class="slot">');
