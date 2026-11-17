@@ -39,3 +39,7 @@
 黎醒溪河明暗，湿缠故土无苍。<br>
 早樱素草遍山花，冬九难放春朗。<br>
 </p>
+
+<h4 align="center">- 活动 -</h4>
+<img src="https://ghchart.rshah.org/2f81f7/bihongcue876" alt="Contribution heatmap"  align="center"/>
+ 
