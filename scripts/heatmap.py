@@ -334,7 +334,7 @@ def build_grid(counts, start, end):
 
 
 def render(counts, start, end, theme, lang, title_text,
-           style="square", accent=None):
+           style="square", accent=None, animate=False):
     pal = palette(theme, accent)
     rx = CELL // 2 if style == "dot" else 2
     if style == "flat":
@@ -359,6 +359,17 @@ def render(counts, start, end, theme, lang, title_text,
       f'viewBox="0 0 {width} {height}" font-family="-apple-system,BlinkMacSystemFont,'
       f'Segoe UI,Noto Sans,Helvetica,Arial,sans-serif">')
     a(f'<title>{title_text}</title>')
+    if animate:
+        a('<style>'
+          '@keyframes hm-pop{0%{opacity:0;transform:scale(.35)}'
+          '18%{opacity:1;transform:scale(1.06)}28%{transform:scale(1)}'
+          '100%{opacity:1;transform:scale(1)}}'
+          '@keyframes hm-breathe{0%,100%{opacity:1}50%{opacity:.55}}'
+          '.hm-c{transform-box:fill-box;transform-origin:50% 50%;'
+          'animation:hm-pop 1.2s cubic-bezier(.2,.7,.3,1) infinite}'
+          '.hm-b{animation:hm-breathe 3.6s ease-in-out infinite}'
+          '@media (prefers-reduced-motion: reduce){.hm-c,.hm-b{animation:none}}'
+          '</style>')
     if pal["bg"] != "none":
         a(f'<rect width="{width}" height="{height}" fill="{pal["bg"]}"/>')
 
@@ -399,8 +410,13 @@ def render(counts, start, end, theme, lang, title_text,
                 tip = f"{d.isoformat()} · {v} 次提交"
             else:
                 tip = f"{d.isoformat()} · {v} commit" + ("" if v == 1 else "s")
-            a(f'<rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="{rx}" ry="{rx}" '
-              f'fill="{fill}"><title>{tip}</title></rect>')
+            cls = ""
+            extra = ""
+            if animate and v > 0:
+                cls = ' class="hm-c' + (' hm-b' if lv >= 3 else '') + '"'
+                extra = f' style="animation-delay:{(wi * 62 + row * 9) % 3400}ms"'
+            a(f'<rect{cls}{extra} x="{x}" y="{y}" width="{CELL}" height="{CELL}" '
+              f'rx="{rx}" ry="{rx}" fill="{fill}"><title>{tip}</title></rect>')
 
     # 图例 + 汇总（只有聚合数字）；窄图（单月）放不下图例就只留汇总
     ly = TOP + grid_h + 14
